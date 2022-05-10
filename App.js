@@ -1,7 +1,17 @@
+import * as React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import API from './src/api/config.api'
+
 export default function App() {
+  React.useEffect(() => {
+    API.get('/post').then((res) => {
+      console.log(res)
+      console.log(res.data)
+    })
+  }, [])
+
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
